@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    { "source": "/asgard", "destination": "api/asgard" },
+    { "source": "/asgard/(.*)", "destination": "api/asgard" },
+    { "source": "/home", "destination": "api/home" },
+    { "source": "/home/(.*)", "destination": "api/home" },
     { "source": "/(.*)", "destination": "api/index" }
   ]
 }
