@@ -892,8 +892,7 @@ async function sendNotice (comment) {
     noticeWeChat(comment),
     noticePushPlus(comment),
     noticeWeComPush(comment),
-    noticeQQ(comment),
-    noticeZPush(comment)
+    noticeQQ(comment)
   ]).catch(console.error)
   return { code: RES_CODE.SUCCESS }
 }
@@ -942,8 +941,7 @@ async function noticeMaster (comment) {
     'SC_SENDKEY',
     'QM_SENDKEY',
     'PUSH_PLUS_TOKEN',
-    'WECOM_API_URL',
-    'ZPUSH_TOKEN'
+    'WECOM_API_URL'
   ]
   // 判断是否存在即时消息推送配置
   const hasIMPushConfig = IM_PUSH_CONFIGS.some(item => !!config[item])
@@ -1027,7 +1025,7 @@ async function noticePushPlus (comment) {
   const ppApiUrl = 'https://api.animo.top/dingtalk/send'
   const ppApiParam = {
     card: "1",
-    token: config.ZPUSH_TOKEN,
+    token: config.PUSH_PLUS_TOKEN,
     title: pushContent.subject,
     text: pushContent.content
   }
