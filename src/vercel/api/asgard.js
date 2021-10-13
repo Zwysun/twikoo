@@ -850,7 +850,7 @@ async function commentSubmit (event) {
     console.log('开始异步垃圾检测、发送评论通知')
     console.time('POST_SUBMIT')
     await Promise.race([
-      axios.post(`https://${process.env.VERCEL_URL}`, {
+      axios.post(`https://${request.headers.host}`, {
         event: 'POST_SUBMIT',
         comment
       }, { headers: { 'x-twikoo-recursion': 'true' } }),
